@@ -15,7 +15,12 @@ dependencies {
     testCompile "junit:junit:4.9"
 }
 
+task copyDeps(type: Copy) {
+  from configurations.runtime
+  into 'build/lib'
+}
+
 war {
    destinationDir = file("$buildDir/dist")
-   baseName = 'sample' // leads to mywar-0.9.war
+   baseName = 'sample'
 }
