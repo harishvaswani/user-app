@@ -22,7 +22,8 @@ Application Architecture:
 2. The REST layer returns a JSON response for success or failure that consists of status, message and the payload.
 3. Validations have been added to ensure the username query parameter is mandatory for the /add API and that it does not allow invalid and duplicate usernames. 
 4. A ServiceException class is added as a generic exception class that can be used by the service layer to customize exceptions. Currently, it just produces error messages for invalid/duplicate usernames.
-5. Unit tests are added for the implementation classes for the service and DAO layers and some REST helper classes. 
+5. Unit tests are added for the implementation classes for the service and DAO layers and some REST helper classes.
+
 Building the project:
 
 1. Gradle is the build tool and the dependencies are specified in the build.gradle file. It contains the java and war tasks to compile, run tests and build the WAR file. It also has a task to copy the dependencies to the build/lib directory (convenience for local development).
