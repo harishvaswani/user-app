@@ -1,6 +1,8 @@
 package com.sample.rest;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.sample.service.ServiceException;
 import com.sample.service.UserService;
 import com.sample.service.UserServiceImpl;
@@ -24,26 +26,17 @@ public class UserRest {
 
     private UserService userService;
 
-    /**
-     *
-     * @param userService
-     */
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
-    /**
-     *
-     * @return
-     */
     public UserService getUserService() {
         return userService;
     }
 
     /**
-     *
-     * @return
-     * @throws
+     * API to show a list of usernames
+     * @return JSON response of a list of usernames
      */
     @GET
     @Path("/show")
@@ -55,10 +48,9 @@ public class UserRest {
     }
 
     /**
-     *
-     * @param username
-     * @return
-     * @throws
+     * API to add a username
+     * @param username - username to be added
+     * @return JSON response of success/failure for adding the username
      */
     @POST
     @Path("/add")

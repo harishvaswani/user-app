@@ -19,11 +19,20 @@ public class UserServiceImpl implements UserService {
         return userDao;
     }
 
+    /**
+     * Returns a list of usernames from the DAO layer
+     * @return a list of username strings
+     */
     @Override
     public List<String> showUsers() {
         return userDao.show();
     }
 
+    /**
+     * @param username - username to add (send to the DAO layer)
+     * @return true/false if succeeded/failed
+     * @throws ServiceException if adding a duplicate/blank username
+     */
     @Override
     public boolean addUser(String username) throws ServiceException {
         if (username==null || username.trim().length()==0) {
